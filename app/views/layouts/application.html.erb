@@ -40,8 +40,9 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/plans">My Plans</a></li>
-          <li><a href="/meals">Meals</a></li>
+          <li><a href="/plans"><i class="fa fa-th-list" aria-hidden="true"></i> My Plans</a></li>
+          <li><a href="/meals"><i class="fa fa-cutlery" aria-hidden="true"></i> Meals</a></li>
+          <li><a href="/favorites"><i class="fa fa-heart" aria-hidden="true"></i>  My Favorites</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -49,7 +50,7 @@
           <li><a href="/users/sign_in">Sign In</a></li>
           <li><a href="/users/sign_up">Sign Up</a></li>
           <% else %>
-          <li><a href="/users/<%= current_user.id %>"><%= current_user.first_name %></a></li>
+          <li><a href="/users/<%= current_user.id %>"><%= current_user.email %></a></li>
           <li><a href="/users/sign_out" data-method="delete" rel="nofollow"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a></li>
           <% end %>
         </ul>

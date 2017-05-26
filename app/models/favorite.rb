@@ -11,6 +11,8 @@
 
 class Favorite < ApplicationRecord
 
+  validates :meal_id, :user_id, presence: true
+
   belongs_to :user
   belongs_to :meal
 

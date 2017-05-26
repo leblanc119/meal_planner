@@ -11,6 +11,8 @@
 
 class Ingredient < ApplicationRecord
 
+  validates :meal_id, :name, presence: true
+
   belongs_to :meal
 
 end

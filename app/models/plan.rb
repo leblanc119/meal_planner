@@ -14,6 +14,8 @@
 
 class Plan < ApplicationRecord
 
+  validates :meal_id, :meal_time, :meal_day, :week_id, :user_id, presence: true
+
   belongs_to :user
   has_many :meals
 

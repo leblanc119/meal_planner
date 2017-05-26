@@ -12,8 +12,7 @@
 
 class Meal < ApplicationRecord
 
-  validates :name, 
-  presence: true
+  validates :name, :image, :created_by, presence: true
 
   has_many :favorites, :dependent => :destroy
   has_many :ingredients, :dependent => :nullify
