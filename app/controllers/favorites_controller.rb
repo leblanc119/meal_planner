@@ -11,45 +11,19 @@ class FavoritesController < ApplicationController
     render("favorites/show.html.erb")
   end
 
-  def new
-    @favorite = Favorite.new
-
-    render("favorites/new.html.erb")
-  end
 
   def create
     @favorite = Favorite.new
 
     @favorite.meal_id = params[:meal_id]
-    @favorite.user_id = params[:user_id]
+    @favorite.user_id = current_user.id
 
     save_status = @favorite.save
 
     if save_status == true
-      redirect_to("/favorites/#{@favorite.id}", :notice => "Favorite created successfully.")
+      redirect_to("/meals", :notice => "Favorite created successfully.")
     else
       render("favorites/new.html.erb")
-    end
-  end
-
-  def edit
-    @favorite = Favorite.find(params[:id])
-
-    render("favorites/edit.html.erb")
-  end
-
-  def update
-    @favorite = Favorite.find(params[:id])
-
-    @favorite.meal_id = params[:meal_id]
-    @favorite.user_id = params[:user_id]
-
-    save_status = @favorite.save
-
-    if save_status == true
-      redirect_to("/favorites/#{@favorite.id}", :notice => "Favorite updated successfully.")
-    else
-      render("favorites/edit.html.erb")
     end
   end
 
