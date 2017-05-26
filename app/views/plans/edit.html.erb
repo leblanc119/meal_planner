@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @plan.errors.any? %>
+  <% @plan.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Plan #<%= @plan.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_plan/<%= @plan.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for meal_id -->
+      <div class="form-group">
+        <label for="meal_id" class="control-label">
+          Meal
+        </label>
+
+        <input type="text" id="meal_id" name="meal_id" placeholder="Meal" class="form-control" value="<%= @plan.meal_id %>">
+      </div>
+
+      <!-- Label and input for meal_time -->
+      <div class="form-group">
+        <label for="meal_time" class="control-label">
+          Meal time
+        </label>
+
+        <input type="text" id="meal_time" name="meal_time" placeholder="Meal time" class="form-control" value="<%= @plan.meal_time %>">
+      </div>
+
+      <!-- Label and input for meal_day -->
+      <div class="form-group">
+        <label for="meal_day" class="control-label">
+          Meal day
+        </label>
+
+        <input type="text" id="meal_day" name="meal_day" placeholder="Meal day" class="form-control" value="<%= @plan.meal_day %>">
+      </div>
+
+      <!-- Label and input for week_id -->
+      <div class="form-group">
+        <label for="week_id" class="control-label">
+          Week
+        </label>
+
+        <input type="text" id="week_id" name="week_id" placeholder="Week" class="form-control" value="<%= @plan.week_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @plan.user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Plan
+      </button>
+      or
+      <a href="/plans/<%= @plan.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

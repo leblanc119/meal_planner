@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1>
+    Meals
+    <a href="/meals/new" class="btn btn-sm btn-success">New Meal</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-md-3">
+    <% @meals.each do |meal| %>
+    <div class="thumbnail">
+      <img src="<%= meal.image %>" alt="<%= meal.name %>">
+      <div class="caption">
+        <h3><%= meal.name %></h3>
+          <a href="/meals/<%= meal.id %>" class="btn btn-primary" role="button"> Show Meal</a>
+          <a href="/meals/<%= meal.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_meal/<%= meal.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+      </div>
+  </div>
+    <% end %>
+  </div>
+</div>
