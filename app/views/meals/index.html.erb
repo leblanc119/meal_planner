@@ -28,8 +28,9 @@
 
         <img src="<%= meal.image %>" align = "middle" alt="<%= meal.name %>" style="width:40%">
 
-        <div class="caption">
-          <a href="/meals/<%= meal.id %>" class="btn btn-xs btn-info" role="button" align="middle"> View</a>
+<p>
+        <div class="btn-group btn-group-justified">
+          <a href="/meals/<%= meal.id %>" class="btn btn-xs btn-info" role="button"> View </a>
           <% if meal.created_by == current_user.id %>
             <a href="/meals/<%= meal.id %>/edit" class="btn btn-danger btn-xs">Edit</a>
             <a href="/delete_meal/<%= meal.id %>" class="btn btn-warning btn-xs" rel="nofollow">Delete</a>
